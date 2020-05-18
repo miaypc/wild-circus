@@ -3,6 +3,7 @@ import Nav from "../Components/Nav";
 import styled from "styled-components";
 import bg from "../Img/bg.jpg";
 import Gallery from "../Components/Gallery";
+import Footer from "../Components/Footer";
 
 const BackgroundImg = styled.div`
   background-position: center;
@@ -17,6 +18,7 @@ function HomePage() {
       <Nav />
       <BackgroundImg />
       <Gallery />
+      <Footer />
     </div>
   );
 }

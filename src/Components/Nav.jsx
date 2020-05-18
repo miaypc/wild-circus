@@ -1,19 +1,26 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-
+import Grid from "@material-ui/core/Grid";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import Menu from "@material-ui/core/Menu";
-import _MenuItem from "@material-ui/core/MenuItem";
+import MenuItem from "@material-ui/core/MenuItem";
 import { Link } from "react-router-dom";
 
-const MenuItem = styled(_MenuItem)`
+//f55d71
+
+const StyledLink = styled(Link)`
   text-decoration: none;
+  color: #f2f2f2;
 `;
 
+const StyledLinks = styled(Link)`
+  text-decoration: none;
+  color: #f55d71;
+`;
 function Nav() {
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -26,40 +33,51 @@ function Nav() {
   };
   return (
     <div>
-      <AppBar position="static" color="secondary">
+      <AppBar
+        position="static"
+        color="secondary"
+        style={{ background: "#f55d71" }}
+      >
         <Toolbar>
-          <Typography variant="h5" color="default" align="center">
-            Wild Circus
+          <Typography variant="h4">
+            <StyledLink to="/">Wild Circus</StyledLink>
           </Typography>
-          <IconButton
-            edge="start"
-            justifyContent="flex-end"
-            color="inherit"
-            aria-label="menu"
-            aria-controls="simple-menu"
-            aria-haspopup="true"
-            onClick={handleClick}
-          >
-            <MenuIcon />
-            <Menu
-              id="simple-menu"
-              anchorEl={anchorEl}
-              keepMounted
-              open={Boolean(anchorEl)}
-              onClose={handleClose}
+
+          <Grid container justify="flex-end" xs>
+            <IconButton
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              aria-controls="simple-menu"
+              aria-haspopup="true"
+              onClick={handleClick}
             >
-              <MenuItem>
-                <Link to="/" onClick={handleClose}>
-                  Home
-                </Link>
-              </MenuItem>
-              <MenuItem>
-                <Link to="/booking" onClick={handleClose}>
-                  Booking
-                </Link>
-              </MenuItem>
-            </Menu>
-          </IconButton>
+              <MenuIcon />
+              <Menu
+                id="simple-menu"
+                anchorEl={anchorEl}
+                keepMounted
+                open={Boolean(anchorEl)}
+                onClose={handleClose}
+              >
+                <MenuItem>
+                  <StyledLinks to="/" onClick={handleClose}>
+                    Home
+                  </StyledLinks>
+                </MenuItem>
+                <MenuItem>
+                  <StyledLinks to="/booking" onClick={handleClose}>
+                    Booking
+                  </StyledLinks>
+                </MenuItem>
+                <MenuItem>
+                  <StyledLinks to="/admin" onClick={handleClose}>
+                    Admin
+                  </StyledLinks>
+                </MenuItem>
+              </Menu>
+            </IconButton>
+          </Grid>
         </Toolbar>
       </AppBar>
     </div>
