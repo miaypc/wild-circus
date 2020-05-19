@@ -2,8 +2,9 @@ import React from "react";
 import Nav from "../Components/Nav";
 import styled from "styled-components";
 import bg from "../Img/bg.jpg";
-import Gallery from "../Components/Gallery";
+import Artists from "../Components/Artists";
 import Footer from "../Components/Footer";
+import Location from "../Components/Location";
 
 const BackgroundImg = styled.div`
   background-position: center;
@@ -17,7 +18,8 @@ function HomePage() {
     <div>
       <Nav />
       <BackgroundImg />
-      <Gallery />
+      <Artists />
+      <Location />
       <Footer />
     </div>
   );

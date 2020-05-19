@@ -1,49 +1,54 @@
 import React from "react";
-import Card from "./Card";
-import styled from "styled-components";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableContainer from "@material-ui/core/TableContainer";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
 
-const GalleryInfo = [
-  {
-    name: "Tofu",
-    img:
-      "https://www.gannett-cdn.com/-mm-/f3480cd08796bf2cb752a83f306e912801b20fe5/c=0-0-2997-1693/local/-/media/2017/10/24/INGroup/LafayetteIN/636444527272217998-IMG-0577.JPG?width=1600&height=800&fit=crop",
-    description: " I am a Corgi",
-  },
-  {
-    name: "Red Bean",
-    img:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSb2RWIUJWaRGnKKq_eASbmv0UXc_H7js4ygQ4B5HjCcG-E358-&usqp=CAU",
-    description: "Hi, I am a Cat ",
-  },
-  {
-    name: "Molly",
-    img:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR-anAA6HSYlZ8tooj81GohqwxhDxXFXm2KuGwjFtYnxZIG7xGj&usqp=CAU",
-    description: "Hey, I am a Collie.",
-  },
+function createData(name, artists, pieces, hours) {
+  return { name, artists, pieces, hours };
+}
+
+const rows = [
+  createData("Mollys Gallery", "Molly", 20, "10:00 - 17:00"),
+  createData("Red Beans Gallery", "Red Bean", 50, "10:00 - 12:00"),
+  createData("Tofus Gallery", "Tofu", 45, "13:00 - 18:00"),
 ];
 
-const CardDiv = styled.div`
-  justify-content: space-around;
-  display: flex;
-`;
-const H1 = styled.h1`
-  text-align: center;
-  margin-top: 2em;
-  margin-bottom: 1em;
-`;
 function Gallery() {
   return (
-    <div>
-      <H1>Our Artists</H1>
-      <CardDiv>
-        {GalleryInfo.map((e) => {
-          return (
-            <Card description={e.description} name={e.name} image={e.img} />
-          );
-        })}
-      </CardDiv>
+    <div style={{ marginBottom: "5em" }}>
+      <TableContainer>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell style={{ fontSize: "20px" }}>Gallery Name</TableCell>
+              <TableCell align="right" style={{ fontSize: "20px" }}>
+                The Artists
+              </TableCell>
+              <TableCell align="right" style={{ fontSize: "20px" }}>
+                Pieces
+              </TableCell>
+              <TableCell align="right" style={{ fontSize: "20px" }}>
+                Opening Hours
+              </TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {rows.map((row) => (
+              <TableRow key={row.name}>
+                <TableCell> {row.name} </TableCell>
+                <TableCell align="right"> {row.artists} </TableCell>
+                <TableCell align="right"> {row.pieces} </TableCell>
+                <TableCell align="right"> {row.hours} </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
     </div>
   );
 }
+
 export default Gallery;

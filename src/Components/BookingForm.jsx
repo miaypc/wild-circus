@@ -52,7 +52,11 @@ function BookingForm({
           </MenuItem>
         ))}
       </TextField>
-      <Button color="secondary" variant="contained" onClick={handleSubmit}>
+      <Button
+        style={{ color: "#f55d71" }}
+        variant="contained"
+        onClick={handleSubmit}
+      >
         Submit
       </Button>
     </form>

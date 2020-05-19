@@ -22,7 +22,7 @@ function GalleryCard(props) {
   return (
     <Card className={classes.card}>
       <CardActionArea>
-        <CardHeader title={props.name} />
+        <CardHeader title={props.name} style={{ color: "#797c80" }} />
         <CardMedia
           component="img"
           className={classes.media}

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Nav from "../Components/Nav";
 import Footer from "../Components/Footer";
 import BookingForm from "../Components/BookingForm";
+import Gallery from "../Components/Gallery";
 
 const gallerys = [
   {
@@ -69,7 +70,9 @@ function BookingPage() {
   return (
     <div>
       <Nav />
-      <BookingTitle>Book Your Tickets</BookingTitle>
+      <BookingTitle style={{ color: "#f55d71" }}>
+        Book Your Tickets
+      </BookingTitle>
       <BookingForm
         handleSubmit={handleSubmit}
         name={name}
@@ -80,6 +83,8 @@ function BookingPage() {
         handleChangeGallery={handleChangeGallery}
         gallerys={gallerys}
       />
+      <BookingTitle style={{ color: "#f55d71" }}>Our Gallery</BookingTitle>
+      <Gallery />
       <Footer />
     </div>
   );
